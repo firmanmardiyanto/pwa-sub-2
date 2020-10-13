@@ -1,13 +1,9 @@
-class AfterLoad {
-
-  static btnClick() {
-    const btnElem = document.getElementsByName('save');
-    console.log(btnElem);
+export function btnClick(index) {
+  const btnElem = document.getElementById(index.id)
     btnElem.addEventListener('click', () => {
-      console.log('button click');
+      console.log(index.awayTeam.name);
     })
   }
-}
 
 export async function loadPage(elements) {
     const response = await fetch(`pages/${elements}.html`);
@@ -16,7 +12,6 @@ export async function loadPage(elements) {
     if (response.ok) {
       const data = await response.text();
       content.innerHTML = data;
-      AfterLoad.btnClick();
     } else if (response.status === 404) {
       content.innerHTML = '<p>Halaman tidak ditemukan.</p>';
     } else {
