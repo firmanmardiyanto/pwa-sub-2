@@ -1,21 +1,25 @@
-import {loadNav, loadPage} from './navbar.js';
-import {getDataNextMatch, getDataRecentMatch, getDataKlasemen, getDataCompetition} from './home.js';
-// import {getDataFixturesNext} from './fixtures.js';
+import {loadNav} from './navbar.js';
+import {home} from './home.js';
+import {fixtures} from './fixtures.js';
+import {initComponents, loadPage} from './init.js';
 
-document.addEventListener('DOMContentLoaded', function() {
-    const elems = document.querySelectorAll('.sidenav');
-    M.Sidenav.init(elems);
-  
+const load = function() {
+    initComponents();
+        
     loadNav();
 
-    let page = window.location.hash.substr(1);
-    if (page == '') page = 'home';
-    loadPage(page);
+    // home page
+    home();
 
-    getDataNextMatch();
-    getDataRecentMatch();
-    getDataKlasemen();
-    getDataCompetition();
+    // fixtures page
+    fixtures();
 
-    // getDataFixturesNext();
-});
+    // let save = document.querySelector('.red');
+    // console.log(save);
+    // save.onclick = () => {
+    //     console.log('Tombol save klik');
+    // }
+
+};
+
+document.addEventListener('DOMContentLoaded', load);

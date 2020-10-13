@@ -1,0 +1,16 @@
+{
+    "name": "footbal-live",
+    "short_name": "footbal-live",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#2196f3",
+    "theme_color": "#2196f3",
+    "icons": [
+        {
+            "src": "/assets/icons/football-ball.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/materialize.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css" media="screen,projection">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#2196f3"/>
     <link rel="apple-touch-icon" href="">
@@ -12,11 +13,12 @@
     <title>Footbal-Live</title>
 </head>
 <body>
-  <script type="module" src="assets/js/main.js"></script>
   <header>
     <nav class="black accent-4" role="navigation">
       <div class="nav-wrapper container">
-        <a href="#" class="brand-logo" id="logo-container">FootbalLive</a>
+        <a href="#" class="brand-logo" id="logo-container">
+          <img src="assets/icons/football-ball-32.png">
+        </a>
         <a href="#" class="sidenav-trigger" data-target="nav-mobile">☰</a>
         
         <ul class="topnav right hide-on-med-and-down"></ul>
@@ -25,9 +27,8 @@
     </nav>
   </header>
 
-
     <div id="body-content"></div>
-
+    
     <footer class="page-footer black">
         <div class="footer-copyright">
           <div class="container">
@@ -37,7 +38,12 @@
     </footer>
 
     <script type="text/javascript" src="assets/js/materialize.min.js"></script>
-    <script type="module" src="assets/js/fixtures.js"></script>
     
+
+    <script src="assets/js/registerSW.js"></script>
+    <script src="https://unpkg.com/idb@5/build/iife/index-min.js"></script>
+    <script src="assets/js/db.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+
 </body>
 </html>

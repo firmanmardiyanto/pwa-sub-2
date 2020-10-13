@@ -11,52 +11,29 @@
         <div class="row">
             <div class="col m6 s12">
                 <h4>Next Match</h4>
-                <table class="centered">
-                    <tbody id="next-match">
-                        <div id="preloader-1" class="preloader-wrapper active">
-                            <div class="spinner-layer spinner-red-only">
-                                <div class="circle-clipper left">
-                                <div class="circle"></div>
-                                </div><div class="gap-patch">
-                                <div class="circle"></div>
-                                </div><div class="circle-clipper right">
-                                <div class="circle"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </tbody>
-                </table>
+                <div id="next-match">
+                    <div class="progress" id="preloader-1">
+                        <div class="indeterminate"></div>
+                    </div>
+                </div>
             </div>
             <div class="col m6 s12">
                 <h4>Recent Match</h4>
-                <table class="centered">
-                    <tbody id="recent-match">
-                        <div id="preloader-2" class="preloader-wrapper active">
-                            <div class="spinner-layer spinner-red-only">
-                                <div class="circle-clipper left">
-                                <div class="circle"></div>
-                                </div><div class="gap-patch">
-                                <div class="circle"></div>
-                                </div><div class="circle-clipper right">
-                                <div class="circle"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </tbody>
-                </table>
+                <div id="recent-match">
+                    <div class="progress" id="preloader-2">
+                        <div class="indeterminate"></div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
 
     <section class="klasemen">
-        <h3>League Table</h3>
-        <div class="btn-wrap" style="display: flex; justify-content: space-between;">
-            <a class="white black-text btn">Primer League</a>
-            <a class="waves-effect waves-light btn">See all</a>
-        </div>
+        <h3>Standings</h3>
         <div class="row">
             <div class="col s12">
-                <table class=" highlight responsive-table">
+                <table class="highlight responsive-table">
                     <thead style="background-color: #03c4a1;">
                       <tr>
                           <th>Position</th>
@@ -70,26 +47,16 @@
                     </thead>
             
                     <tbody id="klasemen">
-                        <th>
-                            <div style="display: block;" id="preloader-3" class="preloader-wrapper active">
-                                <div class="spinner-layer spinner-red-only">
-                                    <div class="circle-clipper left">
-                                    <div class="circle"></div>
-                                    </div><div class="gap-patch">
-                                    <div class="circle"></div>
-                                    </div><div class="circle-clipper right">
-                                    <div class="circle"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </th>
+                        <div class="progress" id="preloader-3">
+                            <div class="indeterminate"></div>
+                        </div>
                     </tbody>
                   </table>
             </div>
         </div>
     </section>
 
-    <section class="clubs">
+    <!-- <section class="clubs">
         <h3>Competitions</h3>
         <div class="row" id="competitions">
             <div id="preloader-4" class="preloader-wrapper active">
@@ -104,5 +71,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 </div>

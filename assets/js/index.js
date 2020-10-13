@@ -25,13 +25,11 @@ function error(error) {
 }
 
 export function getData(url) {
-    let get = fetch(url, {headers: headers})
+    let get = fetch(url, {method: 'GET', headers: headers})
      .then(status)
-     .then(json)
-    // let tgl = data.matches[0].utcDate;
-    // syntax lokal: new Date(tgl).toLocaleString('id-ID')
-    // syntax jam: console.log(`${new Date(tgl).getHours()}:${new Date(tgl).getMinutes()} WIB`);        
+     .then(json)       
      .catch(error);
 
      return get;
 }
+
