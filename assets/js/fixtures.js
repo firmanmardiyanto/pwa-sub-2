@@ -1,6 +1,14 @@
 import { getData } from './index.js';
+import { btnClick } from './init.js';
 
 const baseUrl = 'http://api.football-data.org/v2/competitions/2021/matches?status=';
+
+function addListener(data) {
+        //add listener by id
+        for (let index of data.matches) {
+            btnClick(index);
+        }
+}
 
 export function getDataFixturesNext() {
     getData(baseUrl + 'SCHEDULED').then(data => {
@@ -9,7 +17,6 @@ export function getDataFixturesNext() {
         for (let index of data.matches) {
             let wib = index.utcDate;
             let local = new Date(wib).toLocaleString('id-ID').slice(0, -3);
-
             html += `
                 <div class="card horizontal hoverable" style="margin-top: 3rem;">
                     <div class="col s4" style="display: flex; align-items: center; justify-content: center;">
@@ -25,18 +32,22 @@ export function getDataFixturesNext() {
                         <h6>${index.awayTeam.name}</h6>
                     </div>
                     
-                    <a class="btn-floating halfway-fab waves-effect waves-light red" name="save" id="save">
+                    <a class="btn-floating halfway-fab waves-effect waves-light red" name="save" id="${index.id}">
                         <i class="material-icons">add</i>
                     </a>
                 </div>
             `;
         }
 
-        let elemId = document.getElementById('next-match-fixtures') || null;
+        const elemId = document.getElementById('next-match-fixtures') || null;
         elemId.innerHTML = html;
 
-        let preloadId = document.getElementById('preloaderFix-1');
-        preloadId.style.display = 'none';
+        addListener(data);
+
+        /**
+         *  Tidak perlu pakai ini, karena begitu di innerHTML otomatis tertimpah
+        const preloadId = document.getElementById('preloaderFix-1');
+        preloadId.style.display = 'none'; */
 
     });
 }
@@ -65,18 +76,22 @@ export function getDataFixturesRecent() {
                         <h6>${index.awayTeam.name}</h6>
                     </div>
 
-                    <a class="btn-floating halfway-fab waves-effect waves-light red" id="save">
+                    <a class="btn-floating halfway-fab waves-effect waves-light red" id="${index.id}">
                         <i class="material-icons">add</i>
                     </a>
                 </div>
             `;
         }
 
-        let elemId = document.getElementById('recent-match-fixtures') || null;
+        const elemId = document.getElementById('recent-match-fixtures') || null;
         elemId.innerHTML = html;
 
-        let preloadId = document.getElementById('preloaderFix-2');
-        preloadId.style.display = 'none';
+        addListener(data);
+
+        /**
+         *  Tidak perlu pakai ini, karena begitu di innerHTML otomatis tertimpah
+        const preloadId = document.getElementById('preloaderFix-2');
+        preloadId.style.display = 'none'; */
 
     });
 }
