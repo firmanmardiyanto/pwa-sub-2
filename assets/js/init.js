@@ -12,6 +12,7 @@ export async function loadPage(elements) {
     if (response.ok) {
       const data = await response.text();
       content.innerHTML = data;
+
     } else if (response.status === 404) {
       content.innerHTML = '<p>Halaman tidak ditemukan.</p>';
     } else {
