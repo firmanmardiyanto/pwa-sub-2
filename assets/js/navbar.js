@@ -1,15 +1,19 @@
+import {loadPage} from './init.js'
+
 export async function loadNav() {
     const responseNav = await fetch('nav.html');
 
+
+
     if (responseNav.ok) {
       const data = await responseNav.text();
-      document.querySelectorAll('.topnav, .sidenav').forEach(function(elem) {
+      document.querySelectorAll('.topnav, .sidenav').forEach(elem => {
         elem.innerHTML = data;
       });
 
       document.querySelectorAll('.sidenav a, .topnav a')
-          .forEach(function(elem) {
-            elem.addEventListener('click', function(event) {
+          .forEach(elem => {
+            elem.addEventListener('click', event => {
               // tutup sidenav
               const sidenav = document.querySelector('.sidenav');
               M.Sidenav.getInstance(sidenav).close();
@@ -19,21 +23,12 @@ export async function loadNav() {
               loadPage(page);
             });
           });
+        
+      let page = window.location.hash.substr(1);
+      if (page == '') page = 'home';
+      loadPage(page);
+      
     } else {
       alert('HTTP-Error: ' + responseNav.status);
-    }
-}
-
-export async function loadPage(elements) {
-    const response = await fetch(`pages/${elements}.html`);
-    const content = document.querySelector('#body-content');
-
-    if (response.ok) {
-      const data = await response.text();
-      content.innerHTML = data;
-    } else if (response.status === 404) {
-      content.innerHTML = '<p>Halaman tidak ditemukan.</p>';
-    } else {
-      content.innerHTML = '<p>Ups halaman tidak dapat diakses.</p>';
     }
 }
